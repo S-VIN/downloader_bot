@@ -1,0 +1,6 @@
+version: "1"
+
+services:
+  server:
+    build: ./
+    command: python ./main.py

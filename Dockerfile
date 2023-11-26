@@ -6,8 +6,8 @@ COPY requirements.txt /home/
 WORKDIR /home
 
 COPY main.py ./
-COPY peer.py ./
 COPY settings.py ./
+COPY confirmationSettings.py ./
 
 RUN mkdir ./media_from_dialogs
 RUN mkdir ./logs

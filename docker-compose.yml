@@ -2,5 +2,9 @@ version: "1"
 
 services:
   server:
+    volumes:
+      - type: bind
+        source: $HOST/mnt/oldschool
+        target: /mnt/oldschool
     build: ./
     command: python ./main.py

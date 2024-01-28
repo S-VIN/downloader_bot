@@ -8,6 +8,7 @@ WORKDIR /home
 COPY main.py ./
 COPY settings.py ./
 COPY confirmationSettings.py ./
+COPY utils.py ./
 
 RUN mkdir ./media_from_dialogs
 RUN mkdir ./logs

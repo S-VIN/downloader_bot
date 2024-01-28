@@ -40,3 +40,7 @@ class ConfirmationTimer:
 
     def increase_media_counter(self):
         self.__media_counter__ += 1
+
+    def decrease_media_counter(self):
+        if self.__media_counter__ > 0:
+            self.__media_counter__ -= 1

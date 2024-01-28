@@ -3,6 +3,7 @@ from confirmationSettings import ConfirmationTimer
 from telethon import TelegramClient, events, types
 import logging
 import sys
+from utils import *
 
 bot = (TelegramClient(
     'vinokurov_archiever_bot',
@@ -22,7 +23,8 @@ logger.addHandler(streamHandler)
 
 
 async def send_confirmation(media_number):
-    await bot.send_message(bot.peer_id, 'Файлы скачаны. Скачано: ' + str(media_number))
+    if media_number > 0:
+        await bot.send_message(bot.peer_id, 'Файлы скачаны. Скачано: ' + str(media_number))
 
 
 # Создаём таймер для отправки подтверждения скачивания
@@ -50,6 +52,16 @@ async def process_message(event):
     if await process_media_from_message(event.original_update.message):
         confirmation_timer.increase_media_counter()
         await confirmation_timer.set_timer()
+
+
+@bot.on(events.MessageDeleted)
+async def delete_message(event):
+    print('delete message: ', event)
+    delete_message_ids = event.deleted_ids
+    for id in delete_message_ids:
+        file_was_deleted = delete_file_by_id(id)
+        if file_was_deleted:
+            confirmation_timer.decrease_media_counter()
 
 
 async def process_media_from_message(tg_message):

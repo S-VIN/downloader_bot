@@ -1,10 +1,18 @@
-version: "1"
+version: "3.8"
 
 services:
   server:
+
     volumes:
-      - type: bind
-        source: $HOST/mnt/oldschool
-        target: /mnt/oldschool
-    build: ./
-    command: python ./main.py
+        - docker_old_school_volume:/mnt/oldschool
+
+    build:
+      context: ./
+      dockerfile: Dockerfile
+
+    restart: always
+    
+    
+# Храним репозитории при перезапусках, чтобы не клонить каждый раз
+volumes:
+  docker_old_school_volume:

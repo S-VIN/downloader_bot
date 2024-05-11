@@ -14,4 +14,4 @@ RUN mkdir ./media_from_dialogs
 RUN mkdir ./logs
 RUN pip install -r /home/requirements.txt
 
-# CMD [ "python", "./main.py"]
+CMD [ "python", "./main.py"]

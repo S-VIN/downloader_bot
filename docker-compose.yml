@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   server:
-    image: docker-registry.ntprog.com:5000/devops/branch_bot_image:latest
+    image: vinstp/downloader_bot_server:latest
 
     secrets:
       - source: downloader_bot_old_school_api_id

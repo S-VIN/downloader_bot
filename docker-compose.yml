@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   server:
-    image: 10.8.0.1:5000/vinstp/downloader_bot_server:latest
+    image: localhost:5000/vinstp/downloader_bot_server:latest
 
     secrets:
       - source: downloader_bot_old_school_api_id

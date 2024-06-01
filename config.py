@@ -1,6 +1,6 @@
 PROD_ENV = False
 
-PATH_FOR_MEDIA = '/mnt/oldschool/import' if PROD_ENV else './media_from_dialogs/'
+PATH_FOR_MEDIA = './media_from_dialogs/'
 PATH_FOR_LOGS = './logs/'
 
 DEFAULT_CONFIRMATION_PERIOD = 2 * 60 if PROD_ENV else 5

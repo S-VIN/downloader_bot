@@ -13,13 +13,11 @@ services:
         target: /run/secrets/downloader_bot_old_school_api_hash
 
     volumes:
-        - docker_old_school_volume:/mnt/oldschool
+        - docker_old_school_volume:/mnt/oldschool/import
 
     build:
       context: ./
       dockerfile: Dockerfile
-
-    restart: always
 
 
 secrets:

@@ -1,4 +1,4 @@
-PROD_ENV = False
+PROD_ENV = True
 
 PATH_FOR_MEDIA = './media_from_dialogs/'
 PATH_FOR_LOGS = './logs/'

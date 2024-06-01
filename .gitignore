@@ -1,5 +1,5 @@
 /vinokurov_archiever_bot.session
-/settings.py
+secrets.py
 /venv/
 /media_from_dialogs/
 /logs/

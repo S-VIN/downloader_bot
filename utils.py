@@ -1,9 +1,9 @@
 from glob import glob
-import settings
+import config
 import os
 
 def get_file_by_id(id):
-    result = glob(settings.PATH_FOR_MEDIA + '????-??-??_' + str(id) + '.*')
+    result = glob(config.PATH_FOR_MEDIA + '????-??-??_' + str(id) + '.*')
     if len(result) == 1:
         return result[0]
     else:

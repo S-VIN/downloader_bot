@@ -1,9 +1,9 @@
 import asyncio
-import settings
+import config
 
 
 class ConfirmationTimer:
-    __confirmation_period__ = settings.DEFAULT_CONFIRMATION_PERIOD  # in seconds
+    __confirmation_period__ = config.DEFAULT_CONFIRMATION_PERIOD  # in seconds
     __media_counter__ = 0
     __callback__ = None  # коллбек, вызывается, когда таймер заканчивается
     __task__ = None
@@ -32,7 +32,7 @@ class ConfirmationTimer:
             except asyncio.CancelledError:
                 pass
 
-    def enable_confirmation(self, confirmation_period=settings.DEFAULT_CONFIRMATION_PERIOD):
+    def enable_confirmation(self, confirmation_period=config.DEFAULT_CONFIRMATION_PERIOD):
         self.__confirmation_period__ = confirmation_period
 
     def disable_confirmation(self):

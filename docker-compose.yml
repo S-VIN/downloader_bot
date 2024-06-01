@@ -2,6 +2,15 @@ version: "3.8"
 
 services:
   server:
+    image: docker-registry.ntprog.com:5000/devops/branch_bot_image:latest
+
+    secrets:
+      - source: downloader_bot_old_school_api_id
+        target: /run/secrets/downloader_bot_old_school_api_id
+      - source: downloader_bot_old_school_bot_token
+        target: /run/secrets/downloader_bot_old_school_bot_token
+      - source: downloader_bot_old_school_api_hash
+        target: /run/secrets/downloader_bot_old_school_api_hash
 
     volumes:
         - docker_old_school_volume:/mnt/oldschool
@@ -11,8 +20,15 @@ services:
       dockerfile: Dockerfile
 
     restart: always
+
+
+secrets:
+  downloader_bot_old_school_api_id:
+    external: true
+  downloader_bot_old_school_bot_token:
+    external: true
+  downloader_bot_old_school_api_hash:
+      external: true
     
-    
-# Храним репозитории при перезапусках, чтобы не клонить каждый раз
 volumes:
   docker_old_school_volume:

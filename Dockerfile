@@ -6,7 +6,7 @@ COPY requirements.txt /home/
 WORKDIR /home
 
 COPY main.py ./
-COPY settings.py ./
+COPY config.py ./
 COPY confirmationSettings.py ./
 COPY utils.py ./
 

@@ -1,9 +1,14 @@
+import asyncio
+import subprocess
+
 import config
 from confirmationSettings import ConfirmationTimer
 from telethon import TelegramClient, events, types
 import logging
 import sys
 import utils
+import schedule
+import time
 
 bot = (TelegramClient(
     'vinokurov_archiever_bot',
@@ -79,4 +84,23 @@ async def process_media_from_message(tg_message):
         return False
 
 
-bot.run_until_disconnected()
+def copy_files():
+    process = subprocess.Popen('cp -r ./ ' + config.PATH_FOR_MEDIA_COPY, cwd=config.PATH_FOR_MEDIA, shell=True)
+    print(process.args)
+    process.communicate()
+
+    if process.returncode != 0:
+        logger.info('copy images, error: ' + str(process.returncode))
+    return
+
+
+async def clock():
+    while True:
+        schedule.run_pending()
+        await asyncio.sleep(100)
+
+
+schedule.every().day.at("07:00").do(copy_files)
+loop = asyncio.get_event_loop()
+loop.create_task(clock())
+loop.run_forever()

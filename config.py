@@ -1,6 +1,11 @@
 PROD_ENV = True
 
-PATH_FOR_MEDIA = './media_from_dialogs/'
+PATH_FOR_MEDIA = './downloads/'
+if PROD_ENV:
+    PATH_FOR_MEDIA_COPY = '/mnt/oldschool/download_bot/'
+else:
+    PATH_FOR_MEDIA_COPY = '../download_bot/'
+
 PATH_FOR_LOGS = './logs/'
 
 DEFAULT_CONFIRMATION_PERIOD = 2 * 60 if PROD_ENV else 5

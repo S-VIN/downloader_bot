@@ -1,10 +1,7 @@
 PROD_ENV = True
 
 PATH_FOR_MEDIA = './downloads/'
-if PROD_ENV:
-    PATH_FOR_MEDIA_COPY = '/mnt/oldschool/download_bot/'
-else:
-    PATH_FOR_MEDIA_COPY = '../download_bot/'
+PATH_FOR_MEDIA_COPY = '../download_bot/'
 
 PATH_FOR_LOGS = './logs/'
 

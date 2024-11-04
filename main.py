@@ -97,10 +97,10 @@ def copy_files():
 async def clock():
     while True:
         schedule.run_pending()
-        await asyncio.sleep(100)
+        await asyncio.sleep(1)
 
 
-schedule.every().day.at("07:00").do(copy_files)
+schedule.every().minute.do(copy_files)
 loop = asyncio.get_event_loop()
 loop.create_task(clock())
 loop.run_forever()

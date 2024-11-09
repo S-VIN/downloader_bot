@@ -1,7 +1,6 @@
 PROD_ENV = True
 
-PATH_FOR_MEDIA = './downloads/'
-PATH_FOR_MEDIA_COPY = '../download_bot/'
+PATH_FOR_MEDIA = './download_bot/'
 
 PATH_FOR_LOGS = './logs/'
 

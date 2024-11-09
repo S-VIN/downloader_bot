@@ -13,7 +13,7 @@ services:
         target: /run/secrets/downloader_bot_old_school_api_hash
 
     volumes:
-        - "/mnt/oldschool/download_bot:/home/download_bot"
+        - "/home/stp/download_bot:/home/download_bot"
 
     build:
       context: ./

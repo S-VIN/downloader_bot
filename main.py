@@ -84,23 +84,13 @@ async def process_media_from_message(tg_message):
         return False
 
 
-def copy_files():
-    process = subprocess.Popen('cp -r ./ ' + config.PATH_FOR_MEDIA_COPY, cwd=config.PATH_FOR_MEDIA, shell=True)
-    print(process.args)
-    process.communicate()
-
-    if process.returncode != 0:
-        logger.info('copy images, error: ' + str(process.returncode))
-    return
-
-
 async def clock():
     while True:
         schedule.run_pending()
         await asyncio.sleep(1)
 
 
-schedule.every().minute.do(copy_files)
+# schedule.every().minute.do(copy_files)
 loop = asyncio.get_event_loop()
 loop.create_task(clock())
 loop.run_forever()
